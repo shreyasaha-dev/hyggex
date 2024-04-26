@@ -38,9 +38,9 @@ const App = () => {
     );
   };
   return (
-    <div className="px-20">
+    <div className="px-20 md:px-10 sm:px-7 xs:px-3">
       <NavBar />
-      <div className="flex justify-start items-center pt-7 pb-12">
+      <div className="flex justify-start items-center mt-7 mb-12 sm:mt-3 sm:mb-8 xs:flex-wrap">
         <img
           src={require("./Images/home.png")}
           alt="home"
@@ -69,12 +69,12 @@ const App = () => {
         />
         <p className=" text-blue-800 font-bold">Relation and Function</p>
       </div>
-      <div className="mb-14">
+      <div className="mb-14 sm:mb-12">
         <h2 className="text-2xl font-bold mb-9 bg-gradient-to-b from-blue-900 to-blue-800 bg-clip-text text-transparent">
           Relations and Functions ( Mathematics )
         </h2>
         <div className="flex justify-center items-center">
-          <div className="flex flex-col justify-start items-center w-2/4">
+          <div className="flex flex-col justify-start items-center w-2/4 md:w-3/4 sm:w-full">
             <div className="flex justify-center items-center mb-6">
               {gameOption.map((item, i) => {
                 return (
@@ -140,7 +140,7 @@ const App = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-between items-center mb-20">
+      <div className="flex justify-between items-center mb-20 md:mb-14 sm:mb-12">
         <img
           src={require("./Images/hyggexlogo.png")}
           alt="logo"
@@ -152,8 +152,8 @@ const App = () => {
           className="w-52 cursor-pointer"
         />
       </div>
-      <div className="mb-48">
-        <h1 className="text-4xl font-bold bg-gradient-to-b from-blue-900 to-blue-700 bg-clip-text text-transparent mb-8">
+      <div className="mb-48 sm:mb-36">
+        <h1 className="text-4xl font-bold bg-gradient-to-b from-blue-900 to-blue-700 bg-clip-text text-transparent mb-8 sm:text-3xl">
           FAQ
         </h1>
         <div className="">

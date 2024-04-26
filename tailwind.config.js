@@ -3,6 +3,12 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {},
+    screens: {
+      xs: { max: "480px" },
+      lg: { max: "1024px" },
+      md: { max: "768px" },
+      sm: { max: "640px" },
+    },
+    plugins: [],
   },
-  plugins: [],
 };

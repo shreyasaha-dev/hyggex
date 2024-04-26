@@ -2,7 +2,7 @@ import React from "react";
 
 const Questions = ({ question, answer, isOpen, openAnswer }) => {
   return (
-    <div className=" w-3/5 border-sky-500 border rounded-lg px-5 py-3 mb-6">
+    <div className=" w-3/5 border-sky-500 border rounded-lg px-5 py-3 mb-6 md:w-4/5 sm:w-5/6">
       <div
         onClick={openAnswer}
         className="flex justify-between items-center cursor-pointer"
