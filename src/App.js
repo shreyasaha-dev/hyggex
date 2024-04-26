@@ -37,10 +37,11 @@ const App = () => {
       })
     );
   };
+
   return (
     <div className="px-20 md:px-10 sm:px-7 xs:px-3">
       <NavBar />
-      <div className="flex justify-start items-center mt-7 mb-12 sm:mt-3 sm:mb-8 xs:flex-wrap">
+      <div className="flex justify-start items-center mt-7 mb-12 sm:mt-3 sm:mb-8 xs:flex-wrap xs:text-lg">
         <img
           src={require("./Images/home.png")}
           alt="home"
@@ -69,7 +70,7 @@ const App = () => {
         />
         <p className=" text-blue-800 font-bold">Relation and Function</p>
       </div>
-      <div className="mb-14 sm:mb-12">
+      <div className="mb-14 sm:mb-12 xs:mb-8">
         <h2 className="text-2xl font-bold mb-9 bg-gradient-to-b from-blue-900 to-blue-800 bg-clip-text text-transparent">
           Relations and Functions ( Mathematics )
         </h2>
@@ -80,8 +81,8 @@ const App = () => {
                 return (
                   <a
                     key={i}
-                    href=""
-                    className={`mx-4 pb-1 px-2 text-gray-500 font-medium hover:text-blue-900 ${
+                    href="*"
+                    className={`mx-4 pb-1 px-2 text-gray-500 font-medium hover:text-blue-900 xs:mx-1 ${
                       item === selectedOption &&
                       "font-bold text-blue-900 border-b-2 border-blue-900"
                     }`}
@@ -95,7 +96,7 @@ const App = () => {
                 );
               })}
             </div>
-            <div className="w-5/6 mb-7 bg-gradient-to-b from-blue-900 to-blue-500 rounded-3xl h-72 px-8 py-8">
+            <div className="w-5/6 mb-7 bg-gradient-to-b from-blue-900 to-blue-500 rounded-3xl h-72 px-8 py-8 xs:w-full">
               <div className="flex justify-between items-center mb-20">
                 <img
                   src={require("./Images/bulb.png")}
@@ -112,7 +113,7 @@ const App = () => {
                 9 + 6 + 7x - 2x - 3
               </h2>
             </div>
-            <div className="flex justify-around items-center w-4/5">
+            <div className="flex justify-around items-center w-4/5 xs:w-full">
               <img
                 src={require("./Images/refresh.png")}
                 alt="refresh"
@@ -140,37 +141,35 @@ const App = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-between items-center mb-20 md:mb-14 sm:mb-12">
+      <div className="flex justify-between items-center mb-20 md:mb-14 sm:mb-12 xs:flex-col xs:items-start">
         <img
           src={require("./Images/hyggexlogo.png")}
           alt="logo"
-          className="w-48"
+          className="w-48 xs:w-40"
         />
         <img
           src={require("./Images/plus.png")}
           alt=""
-          className="w-52 cursor-pointer"
+          className="w-52 cursor-pointer xs:ml-6"
         />
       </div>
-      <div className="mb-48 sm:mb-36">
-        <h1 className="text-4xl font-bold bg-gradient-to-b from-blue-900 to-blue-700 bg-clip-text text-transparent mb-8 sm:text-3xl">
+      <div className="mb-48 sm:mb-36 xs:mb-20">
+        <h1 className="text-4xl font-bold bg-gradient-to-b from-blue-900 to-blue-700 bg-clip-text text-transparent mb-8 sm:text-3xl xs:mb-4 xs:text-2xl">
           FAQ
         </h1>
-        <div className="">
-          {faq.map((item, i) => {
-            return (
-              <Questions
-                question={item.question}
-                answer={item.answer}
-                isOpen={item.isOpen}
-                openAnswer={() => {
-                  openAnswer(i);
-                }}
-                key={i}
-              />
-            );
-          })}
-        </div>
+        {faq.map((item, i) => {
+          return (
+            <Questions
+              question={item.question}
+              answer={item.answer}
+              isOpen={item.isOpen}
+              openAnswer={() => {
+                openAnswer(i);
+              }}
+              key={i}
+            />
+          );
+        })}
       </div>
     </div>
   );

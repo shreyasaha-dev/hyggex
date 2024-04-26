@@ -7,7 +7,7 @@ const NavBar = () => {
       <img
         src={require("../../Images/logo.png")}
         alt="logo"
-        className="w-36 sm:mb-3 "
+        className="w-36 sm:mb-5 "
       />
       <div className="flex items-center justify-center xs:flex-col xs:items-start">
         <NavLink className="xs:text-lg xs:my-1">Home</NavLink>
