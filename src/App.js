@@ -1,26 +1,29 @@
 import { useState } from "react";
 import NavBar from "./Components/NavBar";
 import Questions from "./Components/Questions";
-
+import CardFrontside from "./Components/CardFrontSide/index.jsx";
+import CardBackSide from "./Components/CardBackSide";
+import ReactCardFlip from "react-card-flip";
 const App = () => {
   const gameOption = ["Study", "Quiz", "Test", "Game", "Others"];
+  const [isFlipped, setIsFlipped] = useState(false);
   const [faq, setFaq] = useState([
     {
       question: "Can education flashcards be used for all age groups?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet velit blandit, venenatis augue in, vestibulum nisl. Phasellus laoreet ligula non justo laoreet, sit amet pulvinar nunc luctus. Pellentesque fermentum erat libero, a iaculis augue vulputate non. Vestibulum facilisis sed erat ac suscipit. Sed accumsan felis nibh, eu mollis nisi dignissim eget. Pellentesque ut est eget massa posuere hendrerit sit amet nec ex. Sed dictum nibh at orci pretium ornare. Quisque odio ligula, hendrerit mollis posuere eget, interdum vel velit.",
+        "Yes, education flashcards can be tailored to different age groups and learning levels. There are flashcards designed for preschoolers, elementary school students, high school students and even for college-level and adult learners. ",
       isOpen: false,
     },
     {
       question: "How do education flashcards work?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet velit blandit, venenatis augue in, vestibulum nisl. Phasellus laoreet ligula non justo laoreet, sit amet pulvinar nunc luctus. Pellentesque fermentum erat libero, a iaculis augue vulputate non. Vestibulum facilisis sed erat ac suscipit. Sed accumsan felis nibh, eu mollis nisi dignissim eget. Pellentesque ut est eget massa posuere hendrerit sit amet nec ex. Sed dictum nibh at orci pretium ornare. Quisque odio ligula, hendrerit mollis posuere eget, interdum vel velit.",
+        "Education flashcards work by presenting a question or prompt on one side and the corresponding answer or information on the other. Users can review the cards repeatedly, reinforcing their memory and enhancing learning through repetition.",
       isOpen: false,
     },
     {
       question: "Can education flashcards be used for test preparation?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet velit blandit, venenatis augue in, vestibulum nisl. Phasellus laoreet ligula non justo laoreet, sit amet pulvinar nunc luctus. Pellentesque fermentum erat libero, a iaculis augue vulputate non. Vestibulum facilisis sed erat ac suscipit. Sed accumsan felis nibh, eu mollis nisi dignissim eget. Pellentesque ut est eget massa posuere hendrerit sit amet nec ex. Sed dictum nibh at orci pretium ornare. Quisque odio ligula, hendrerit mollis posuere eget, interdum vel velit.",
+        "Absolutely. Flashcards are an excellent tool for test preparation, allowing students to review key concepts,terms and facts.They provide a quick and focused way to reinforce knowledge before exams.",
       isOpen: false,
     },
   ]);
@@ -37,7 +40,9 @@ const App = () => {
       })
     );
   };
-
+  const handleFlip = () => {
+    setIsFlipped(!isFlipped);
+  };
   return (
     <div className="px-20 md:px-10 sm:px-7 xs:px-3">
       <NavBar />
@@ -75,7 +80,7 @@ const App = () => {
           Relations and Functions ( Mathematics )
         </h2>
         <div className="flex justify-center items-center">
-          <div className="flex flex-col justify-start items-center w-2/4 md:w-3/4 sm:w-full">
+          <div className="flex flex-col justify-start items-center w-2/5 lg:w-2/4 md:w-3/4 sm:w-full">
             <div className="flex justify-center items-center mb-6">
               {gameOption.map((item, i) => {
                 return (
@@ -96,23 +101,15 @@ const App = () => {
                 );
               })}
             </div>
-            <div className="w-5/6 mb-7 bg-gradient-to-b from-blue-900 to-blue-500 rounded-3xl h-72 px-8 py-8 xs:w-full">
-              <div className="flex justify-between items-center mb-20">
-                <img
-                  src={require("./Images/bulb.png")}
-                  alt="bulb"
-                  className="w-4 cursor-pointer"
-                />
-                <img
-                  src={require("./Images/audio.png")}
-                  alt="audio"
-                  className="w-5 cursor-pointer"
-                />
-              </div>
-              <h2 className="text-center text-2xl font-bold text-white">
-                9 + 6 + 7x - 2x - 3
-              </h2>
-            </div>
+
+            <ReactCardFlip
+              isFlipped={isFlipped}
+              flipDirection="horizontal"
+              containerClassName="w-full"
+            >
+              <CardFrontside onClick={handleFlip} />
+              <CardBackSide onClick={handleFlip} />
+            </ReactCardFlip>
             <div className="flex justify-around items-center w-4/5 xs:w-full">
               <img
                 src={require("./Images/refresh.png")}
